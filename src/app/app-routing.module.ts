@@ -15,7 +15,7 @@ import { AllCountriesComponent } from './countries/all-countries/all-countries.c
   
   @NgModule({
     imports: [
-      RouterModule.forRoot(routes)
+      RouterModule.forRoot(routes,{useHash:true})
     ],
     exports: [RouterModule]
   })
