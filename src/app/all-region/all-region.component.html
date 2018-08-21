@@ -1,0 +1,60 @@
+
+<agm-map [latitude]="51.678418" [longitude]="7.809007" [scaleControl]="true"
+ [scrollwheel]="true" [zoom]="2" style="height: 500px;" class="map"
+>
+    <agm-marker *ngFor="let latlng of latlng" [latitude]="latlng[0]" [longitude]="latlng[1]" ></agm-marker>
+  </agm-map>
+
+  
+<div class="row">
+  <div class="col-xl-4 col-md-6 mt-1">
+      <div class="card"(click)="getCountries('Asia'); disableDIV1 = true;" 
+      (clickOutside)="disableDIV1 = false" [ngClass]="{ 'card-clicked': disableDIV1, 'card': !disableDIV1  }">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Asia</li>
+            <a  class="card-link" [hidden]="!(disableDIV1)"  [routerLink]="['/countries','Asia','','']">Click here to view countries in this region</a>
+          </ul>
+        </div>      
+  </div>
+
+  <div class="col-xl-4 col-md-6 mt-1">
+      <div class="card" (click)="getCountries('Africa') ; disableDIV2 = true" 
+      (clickOutside)="disableDIV2 = false" [ngClass]="{ 'card-clicked': disableDIV2, 'card': !disableDIV2  }">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Africa</li>
+            <a  class="card-link" [hidden]="!(disableDIV2)" [routerLink]="['/countries','Africa','','']">Click here to view countries in this region</a>
+          </ul>
+        </div>      
+  </div>
+
+  <div class="col-xl-4 col-md-6 mt-1">
+      <div class="card" (click)="getCountries('Americas') ; disableDIV3 = true" 
+      (clickOutside)="disableDIV3 = false" [ngClass]="{ 'card-clicked': disableDIV3, 'card': !disableDIV3  }">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Americas</li>
+            <a  class="card-link" [hidden]="!(disableDIV3)" [routerLink]="['/countries','Americas','','']">Click here to view countries in this region</a>
+          </ul>
+        </div>      
+  </div>
+
+  <div class="col-xl-4 col-md-6 mt-1">
+      <div class="card" (click)="getCountries('Europe') ; disableDIV4 = true" 
+      (clickOutside)="disableDIV4 = false" [ngClass]="{ 'card-clicked': disableDIV4, 'card': !disableDIV4  }">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Europe</li>
+            <a  class="card-link" [hidden]="!(disableDIV4)" [routerLink]="['/countries','Europe','','']">Click here to view countries in this region</a>
+          </ul>
+        </div>      
+  </div>
+
+  <div class="col-xl-4 col-md-6 mt-1">
+      <div class="card" (click)="getCountries('Oceania') ; disableDIV5 = true" 
+      (clickOutside)="disableDIV5 = false" [ngClass]="{ 'card-clicked': disableDIV5, 'card': !disableDIV5 }">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Oceania</li>
+            <a  class="card-link" [hidden]="!(disableDIV5)" [routerLink]="['/countries','Oceania','','']">Click here to view countries in this region</a>
+          </ul>
+        </div>      
+  </div>
+</div>
+ 

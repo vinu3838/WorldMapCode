@@ -1,0 +1,22 @@
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+
+
+.font
+{
+
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 700px) {
+    .font
+    {
+    
+        font-size: 0.6rem;
+    }
+}
+

@@ -1,0 +1,58 @@
+<div class="mr-1 ml-1" >
+<div class="row" style="height:100vh">
+<div class="col-8">
+
+
+        <div class="row mt-2">
+            
+            <div class="col-8" >
+                        <input type="text" [(ngModel)]="filter"  placeholder=" Search Country.." name="search" style="border-radius:5px;">
+                </div>
+              
+    
+                <div class="col-4">
+                        <button (click)="sort('name')" class="btn btn-primary pull-right" type="button">Sort <i class="fa fa-sort"></i> <span class="glyphicon sort-icon" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></button>
+                    </div>
+
+                    <div class="col-12" *ngIf="(language) || (currency) || (region)">
+        
+                        <button (click)="btnClick()" class="btn btn-primary mt-1" type="button"><i class="fa fa-filter" aria-hidden="true"></i> Remove Filters</button>
+                </div>
+                </div>
+
+               <div class="row">
+               <div class="col-xl-4 col-md-6 mt-1 font" *ngFor="let response of response  | paginate: { itemsPerPage: 18, currentPage: p} | filter:filter | orderBy: key : reverse; let i=index;">
+                     <div  class="card mt-1" (click)="disableDIV[i] = true" 
+                     (clickOutside)="disableDIV[i] = false" [ngClass]="{ 'card-clicked': disableDIV[i], 'card': !disableDIV[i] }"
+                     *ngIf='(response["name"])'>
+                     <div class="container">
+                         <div class="row">
+                           <div class="col-6">
+                               <img [src]="response['flag']" class="card-img-right img img-responsive" >
+                           </div>
+                           <div class="col-6">
+                             <p> {{response['name']}} </p>
+                             </div>
+                             <div class="col-12">
+                                 <button type="button" class="btn btn-link font" [hidden]="!(disableDIV[i])" (click)="getCountryDetail(response['name'])">Click here for more Info</button>
+                               </div>
+                         </div>
+                       </div>        
+               </div>
+               </div>
+               </div>
+               <div class="m-5">
+                <pagination-controls (pageChange)="p = $event" autoHide="true"></pagination-controls>
+</div>
+</div>
+<div class="col-4">
+    <app-country-details [countryName]="countryName"></app-country-details>
+</div>
+</div>
+</div>
+
+
+
+
+
+

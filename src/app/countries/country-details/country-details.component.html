@@ -1,0 +1,30 @@
+
+   <div [ngStyle]="{'background-image':'url(' +response['flag']+ ')','height':'100%','background-position': 'center', 'opacity':'0.2', 'position': 'relative','background-size': 'cover;'}"  *ngIf="response">
+</div>
+
+<div class='row top-left m-2 font' *ngIf="response">
+  
+    <div class="col-10">
+    <p><b>{{countryName}}</b></p><br>
+    </div>
+    <hr>
+    <div  class="col-10">
+      <p><b>Capital: </b>{{response['capital']}}</p>
+      <hr>
+      <p><b>Region: </b><a  [routerLink]="['/countries',response['region'],'','']">{{response['region']}}</a></p>
+      <hr>
+      <p><b>Language Spoken:</b></p>
+   <a  *ngFor= "let languages of response['languages']; let last=last" 
+   [routerLink]="['/countries','',languages['iso639_1'],'']">{{languages['name']}} {{ last ? ' ':', '}}</a>
+   <hr>
+   <p><b>Currencies Used:</b></p>
+   <a  *ngFor= "let currency of response['currencies']; let last=last" 
+   [routerLink]="['/countries','','',currency['code']]">{{currency['name']}} {{ last ? ' ':', '}}</a>
+   <hr>
+   <p><b>Population: </b>{{response['population']}}</p>
+      <hr>
+      <p><b>Sub Region: </b>{{response['subregion']}}</p>
+      <hr>
+  </div>
+  </div>
+

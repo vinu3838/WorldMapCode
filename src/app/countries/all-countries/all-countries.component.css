@@ -1,0 +1,38 @@
+.card {
+    box-shadow: 10px 10px 5px grey;
+     height:100px;  
+    cursor:pointer;
+    
+}
+.card-clicked {
+    box-shadow: 0;
+     height:100px;  
+    cursor:pointer;
+ 
+}
+
+.img
+{
+    height:50px;  
+    width:100px;  
+
+}
+
+.font
+{
+
+    font-size: 0.7rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .img
+    {
+        height:30px;  
+        width:60px;  
+    
+    }
+}
+
+
+
+
